@@ -202,3 +202,7 @@ function writeU() {
 function writeG() {
     fs.writeFileSync('./Data Files/guilds.json', JSON.stringify(guildData))
 }
+
+//git add . && git commit -m "Commit Title"
+//git push origin master
+//git push heroku master
