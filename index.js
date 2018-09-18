@@ -69,7 +69,7 @@ client.on('message', message => {
             message.channel.send(helpEmb)
         } else if (args[1] == "general") {
             var helpGenEmb = new discord.RichEmbed()
-            .addField("🤔 General", "`uinfo, sinfo, invite`")
+            .addField("🤔 General", "`uinfo, sinfo, invite, binfo`")
             message.channel.send(helpGenEmb);
         } else if (args[1] == "image") {
             var helpGenEmb = new discord.RichEmbed()
@@ -92,6 +92,15 @@ client.on('message', message => {
             .addField("⚙ Configuration", "`none`")
             message.channel.send(helpGenEmb);
         }
+        break;
+
+        case "binfo":
+        var botInfoEmb = new discord.RichEmbed()
+        .setAuthor("Dino Info", client.user.avatarURL)
+        .addField("General:", `Users: ${client.users.size}\nGuilds: ${client.guilds.size}`)
+        .addField("Statistics:", `Ping: ${client.ping}\nUptime: ${millisToMinutesAndSeconds(client.uptime)}`)
+        .setFooter("Made By <@412268614696304642> and <@338332694725263361>")
+        message.channel.send(botInfoEmb)
         break;
 
         case "invite":
@@ -207,6 +216,12 @@ function writeU() {
 function writeG() {
     fs.writeFileSync('./Data Files/guilds.json', JSON.stringify(guildData))
 }
+
+function millisToMinutesAndSeconds(millis) {
+    var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+  }
 
 //git add . && git commit -m "Commit Title"
 //git push origin master
