@@ -101,24 +101,28 @@ client.on('message', message => {
         case "marry":
         var userSent = sender;
         let userToMarry = message.mentions.members.first();
-        try {
-            if(userData[sender.id].partner == "" && userData[userToMarry.id].partner == "") {
-                userToMarry.send("💍 Would you like to marry " + message.author + "?\nReact with either ✅ or 🚫")
-                client.on('messageReactionAdd', (reaction, user) => {
-                    if(reaction.emoji.name === "✅") {
-                        userToMarry.send("You are now married to " + userSent)
-                        userData[userSent.id].partner == userToMarry.user;
-                        userData[userToMarry.id].partner == userSent;
-                        writeU();
-                    } else if(reaction.emoji.name === "🚫") {
-                        userToMarry.send("You have denied this request!")
-                    }
-                });
-            } else {
-                message.channel.send(`Sorry, ${message.author}, that user is already married`)
+        if(userToMarry != client.user) {
+            try {
+                if(userData[sender.id].partner == "" && userData[userToMarry.id].partner == "") {
+                    userToMarry.send("💍 Would you like to marry " + message.author + "?\nReact with either ✅ or 🚫")
+                    client.on('messageReactionAdd', (reaction, user) => {
+                        if(reaction.emoji.name === "✅") {
+                            userToMarry.send("You are now married to " + userSent)
+                            userData[userSent.id].partner == userToMarry.user;
+                            userData[userToMarry.id].partner == userSent;
+                            writeU();
+                        } else if(reaction.emoji.name === "🚫") {
+                            userToMarry.send("You have denied this request!")
+                        }
+                    });
+                } else {
+                    message.channel.send(`Sorry, ${message.author}, that user is already married`)
+                }
+            } catch(error) {
+                message.channel.send(`Sorry, currently unable to marry ${userToMarry.user}`)
             }
-        } catch(error) {
-            message.channel.send(`Sorry, currently unable to marry ${userToMarry.user}`)
+        } else {
+            
         }
         break;
 
