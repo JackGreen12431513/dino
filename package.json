@@ -10,9 +10,11 @@
   "author": "Jack Green",
   "license": "ISC",
   "dependencies": {
+    "argv": "0.0.2",
     "bad-words": "^1.6.3",
     "discord.js": "^11.4.2",
     "dotenv": "^6.0.0",
+    "express": "^4.16.3",
     "gm": "^1.23.1",
     "repeat": "0.0.6",
     "request": "^2.88.0"
