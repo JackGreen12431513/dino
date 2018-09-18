@@ -12,6 +12,7 @@
   "dependencies": {
     "bad-words": "^1.6.3",
     "discord.js": "^11.4.2",
+    "dotenv": "^6.0.0",
     "gm": "^1.23.1",
     "request": "^2.88.0"
   }
