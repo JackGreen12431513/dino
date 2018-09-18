@@ -190,6 +190,19 @@ client.on('message', message => {
             })
         }
         break;
+
+        case "announce":
+        if(message.author.id == '412268614696304642') {
+            var guildList = client.guilds.array();
+            try {
+                guildList.forEach(guild => guild.defaultChannel.send(message.content.replace(prefix + "announce", "").replace(" ", "")));
+            } catch (err) {
+                console.log("Could not send message to " + guild.name);
+            }
+        } else {
+
+        }
+        break;
     }
 })
 
