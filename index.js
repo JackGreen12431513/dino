@@ -206,3 +206,8 @@ function writeG() {
 //git add . && git commit -m "Commit Title"
 //git push origin master
 //git push heroku master
+
+var port = process.env.PORT || 3000;
+app.listen(port, "0.0.0.0", function() {
+console.log("Listening on Port 3000");
+});
