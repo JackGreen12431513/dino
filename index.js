@@ -9,6 +9,7 @@ const gm = require("gm").subClass({
 const repeat = require('repeat');
 const fs = require('fs');
 const Filter = require('bad-words');
+var port = process.env.PORT || 5000;
 
 const filter = new Filter();
 const prefix = "##";
@@ -206,12 +207,3 @@ function writeG() {
 //git add . && git commit -m "Commit Title"
 //git push origin master
 //git push heroku master
-
-const argv = require('yargs').argv;
-const app = require('express')();
-
-const port = argv.port || 8081;
-
-app.listen(argv.port, ()=>{
-    console.log('Probably listening to heroku $PORT now ', argv.port); // unless $PORT is undefined, in which case you're listening to 8081.
-});
