@@ -73,7 +73,7 @@ client.on('message', message => {
             message.channel.send(helpGenEmb);
         } else if (args[1] == "image") {
             var helpGenEmb = new discord.RichEmbed()
-            .addField("📷 Image", "`none`")
+            .addField("📷 Image", "`manip`")
             message.channel.send(helpGenEmb);
         } else if (args[1] == "roleplay") {
             var helpGenEmb = new discord.RichEmbed()
