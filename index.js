@@ -252,7 +252,9 @@ client.on('message', message => {
             let string = '';
             client.guilds.forEach(guild=>{
             string+= 'Guild name: ' + guild.name + '\n';
-            message.author.send(string);
+            var guildsEmb = new discord.RichEmbed()
+            .addField("Guilds:", string)
+            message.author.send(guildsEmb);
         })
         } else {
             
