@@ -199,10 +199,14 @@ client.on('message', message => {
         break;
 
         case "purge":
-        if(message.author.id == guild.owner.id || "412268614696304642") {
-            message.channel.bulkDelete(args[1])
+        if(args[1] != null) {
+            if(message.author.id == guild.owner.id || "412268614696304642") {
+                message.channel.bulkDelete(args[1])
+            } else {
+                message.channel.send(`Sorry, ${message.author}, you do not have permission to run this command!`)
+            }
         } else {
-            message.channel.send(`Sorry, ${message.author}, you do not have permission to run this command!`)
+            
         }
         break;
 
