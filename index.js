@@ -117,7 +117,7 @@ client.on('message', message => {
                     client.on('messageReactionAdd', (reaction, user) => {
                         if(reaction.emoji.name === "✅") {
                             userToMarry.send("You are now married to " + userSent)
-                            userSent(`${userSent}, you are now married to ${userToMarry}!`)
+                            userSent.send(`${userSent}, you are now married to ${userToMarry}!`)
                             userData[userSent.id].partner == userToMarry.user;
                             userData[userToMarry.id].partner == userSent;
                             writeU();
@@ -272,10 +272,6 @@ function millisToMinutesAndSeconds(millis) {
     return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
   }
 
-//git add . && git commit -m "Commit Title"
-//git push origin master
-//git push heroku master
-
 const http = require('http')
 var server = http.createServer();
 server.listen(process.env.PORT || 5000)
@@ -284,3 +280,9 @@ setInterval(function() {
     http.get("http://dinobotdisc.herokuapp.com");
     console.log("Pinged!")
 }, 300000); // every 5 minutes (300000)
+
+/*How to send to host:
+git add . && git commit -m "Commit Title"
+git push origin master
+git push heroku master
+*/
