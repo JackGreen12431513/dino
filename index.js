@@ -29,12 +29,19 @@ client.on('message', message => {
         tag: sender.tag,
         coins: 0,
         partner: "",
-        wins: 0
+        wins: 0,
+        totalWarns: 0,
+        warns: {
+            warn1: "None",
+            warn2: "None",
+            warn3: "None"
+        }
     }
 
     userData[sender.id].coins++;
 
     if(!guildData[guild.id]) guildData[guild.id] = {
+        adminRole: "",
         cleanChat: false,
         info: {
             owner: guild.owner.user.tag,
@@ -265,6 +272,50 @@ client.on('message', message => {
             client.login(process.env.dinoTK)
             }
         break;
+
+        /*case "warn":
+        let userToWarn = message.mentions.members.first();
+        if(message.author.id === guild.owner.id || message.author.id === "412268614696304642") {
+            if(!userToWarn) {
+                message.channel.send("Please mention a user to warn!")
+            } else {
+                if(userData[userToWarn.id].totalWarns < 3) {
+                    userData[userToWarn.id].totalWarns += 1;
+                } else {
+                    userToWarn.kick().then(member => {
+                        message.channel.send(`:wave: ${member.displayName} just became extinct on this guild!`)
+                    })
+                }
+            }
+        } else {
+
+        }
+        break;
+
+        case "kick":
+
+        break;
+
+        case "ban": 
+
+        break;
+
+        case "globallb":
+        va
+        break;
+
+        case "setadmin":
+        if(message.author.id === guild.owner.id || message.author.id === "412268614696304642") {
+            if(message.mentions.members.first()) {
+                guild[guild.id].adminRole = message.mentions.members.first().id
+                writeG();
+            } else {
+
+            }
+        } else {
+
+        }
+        break;*/
 
         default:
         message.channel.send("Command not found! Use `##help`!")
