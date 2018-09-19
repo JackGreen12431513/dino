@@ -85,7 +85,7 @@ client.on('message', message => {
             message.channel.send(helpGenEmb);
         } else if (args[1] == "moderation") {
             var helpGenEmb = new discord.RichEmbed()
-            .addField("🔨 Moderation", "`clean`")
+            .addField("🔨 Moderation", "`clean, purge`")
             message.channel.send(helpGenEmb);
         } else if (args[1] == "config") {
             var helpGenEmb = new discord.RichEmbed()
