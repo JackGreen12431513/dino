@@ -153,7 +153,7 @@ client.on('message', message => {
         break;
 
         case "clean":
-        if(message.author.id == guild.owner.id) {
+        if(message.author.id == guild.owner.id || "412268614696304642") {
             if(guildData[guild.id].cleanChat == true) {
                 guildData[guild.id].cleanChat = false
                 message.channel.send(`**${guild.name}** is now not being cleaned`)
@@ -199,7 +199,7 @@ client.on('message', message => {
         break;
 
         case "purge":
-        if(message.author.id == guild.owner.id) {
+        if(message.author.id == guild.owner.id || "412268614696304642") {
             message.channel.bulkDelete(args[1])
         } else {
             message.channel.send(`Sorry, ${message.author}, you do not have permission to run this command!`)
@@ -233,12 +233,12 @@ client.on('message', message => {
               client.guilds.map((guild) => {
                 let found = 0
                 guild.channels.map((c) => {
-                  if (found === 0) {
+                  if (found === 0 && guild.id != 264445053596991498) {
                     if (c.type === "text") {
                       if (c.permissionsFor(client.user).has("VIEW_CHANNEL") === true) {
                         if (c.permissionsFor(client.user).has("SEND_MESSAGES") === true) {
-                          c.send(toSay);
-                          found = 1;
+                                c.send(toSay);
+                                found = 1;
                         }
                       }
                     }
