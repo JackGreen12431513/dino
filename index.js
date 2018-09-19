@@ -198,19 +198,6 @@ client.on('message', message => {
         }
         break;
 
-        case "announce":
-        if(message.author.id == '412268614696304642') {
-            var guildList = client.guilds.array();
-            try {
-                guildList.forEach(guild => guild.defaultChannel.send(message.content.replace(prefix + "announce", "").replace(" ", "")));
-            } catch (err) {
-                console.log("Could not send message to " + guild.name);
-            }
-        } else {
-
-        }
-        break;
-
         case "purge":
         if(message.author.id == guild.owner.id) {
             message.channel.bulkDelete(args[1])
@@ -239,6 +226,34 @@ client.on('message', message => {
         }
         break;
 
+        case "announce":
+        if (message.author.id === "412268614696304642") {
+            try {
+              let toSay = message.content.replace(prefix + "announce", "").replace(" ", "")
+              client.guilds.map((guild) => {
+                let found = 0
+                guild.channels.map((c) => {
+                  if (found === 0) {
+                    if (c.type === "text") {
+                      if (c.permissionsFor(client.user).has("VIEW_CHANNEL") === true) {
+                        if (c.permissionsFor(client.user).has("SEND_MESSAGES") === true) {
+                          c.send(toSay);
+                          found = 1;
+                        }
+                      }
+                    }
+                  }
+                });
+              });
+            }
+            catch (err) {
+              console.log("Could not send message to a (few) guild(s)! - " + err);
+            }
+          } else {
+            message.reply("You cant do that!")
+          }
+        break;
+
         case "reboot":
             if (message.author.id == "338332694725263361" || "412268614696304642") {
             message.channel.send("Rebooting Dino")
@@ -246,7 +261,7 @@ client.on('message', message => {
             client.login(process.env.dinoTK)
             }
         break;
-        
+
         default:
         message.channel.send("Command not found! Use `##help`!")
         .then(msg => {
