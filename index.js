@@ -153,7 +153,7 @@ client.on('message', message => {
         break;
 
         case "clean":
-        if(message.author.id === guild.owner.id || "412268614696304642") {
+        if(message.author.id === guild.owner.id || message.author.id === "412268614696304642") {
             if(guildData[guild.id].cleanChat == true) {
                 guildData[guild.id].cleanChat = false
                 message.channel.send(`**${guild.name}** is now not being cleaned`)
@@ -200,7 +200,7 @@ client.on('message', message => {
 
         case "purge":
         if(args[1] != null) {
-            if(message.author.id === guild.owner.id || "412268614696304642") {
+            if(message.author.id === guild.owner.id || message.author.id === "412268614696304642") {
                 message.channel.bulkDelete(args[1])
             } else {
                 message.channel.send(`Sorry, ${message.author}, you do not have permission to run this command!`)
@@ -259,7 +259,7 @@ client.on('message', message => {
         break;
 
         case "reboot":
-            if (message.author.id === "338332694725263361" || "412268614696304642") {
+            if (message.author.id === "338332694725263361" || message.author.id === "412268614696304642") {
             message.channel.send("Rebooting Dino")
             client.destroy()
             client.login(process.env.dinoTK)
