@@ -98,7 +98,7 @@ client.on('message', message => {
         var botInfoEmb = new discord.RichEmbed()
         .setAuthor("Dino Info", client.user.avatarURL)
         .addField("General:", `Users: ${client.users.size}\nGuilds: ${client.guilds.size}`)
-        .addField("Statistics:", `Ping: \`${math.floor(client.ping)}ms\`\nUptime: \`${millisToMinutesAndSeconds(client.uptime)}s\``)
+        .addField("Statistics:", `Ping: \`${Math.floor(client.ping)}ms\`\nUptime: \`${millisToMinutesAndSeconds(client.uptime)}s\``)
         .setFooter("Made By Jack 🌹👑#7908 and Phoenix#8196")
         message.channel.send(botInfoEmb)
         break;
