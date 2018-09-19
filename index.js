@@ -121,6 +121,7 @@ client.on('message', message => {
                             userData[userSent.id].partner = userToMarry.user;
                             userData[userToMarry.id].partner = userSent;
                             writeU();
+
                         } else if(reaction.emoji.name === "🚫") {
                             userToMarry.send("You have denied this request!")
                         }
@@ -134,6 +135,11 @@ client.on('message', message => {
         } else {
 
         }
+        break;
+
+        case "divorce":
+        
+
         break;
 
         case "uinfo":
@@ -233,6 +239,14 @@ client.on('message', message => {
         }
         break;
 
+        case "reboot":
+            if (message.author.id = "338332694725263361" || "412268614696304642") {
+            message.channel.send("Rebooting Dino")
+            client.destroy()
+            client.login(process.env.dinoTK)
+            }
+        break;
+
         default:
         message.channel.send("Command not found! Use `##help`!")
         .then(msg => {
@@ -263,7 +277,9 @@ function writeU() {
 } 
 
 function writeG() {
-    fs.writeFileSync('./Data Files/guilds.json', JSON.stringify(guildData))
+    fs.writeFileSync('./Data Files/guilds.json', JSON.stringify(guildData), (err) => {
+        console.log(err)
+    })
 }
 
 function millisToMinutesAndSeconds(millis) {
