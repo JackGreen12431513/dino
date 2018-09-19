@@ -203,6 +203,13 @@ client.on('message', message => {
 
         }
         break;
+
+        default:
+        message.channel.send("Command not found! Use `##help`!")
+        .then(msg => {
+            msg.delete(1000)
+        })
+        break;
     }
 })
 

@@ -15,8 +15,14 @@ module.exports = client => {
         activ += 1;
         client.user.setActivity(`${prefix}help for help!`)
     } else if (activ == 2) {
-        activ -= 2;
+        activ += 1;
         client.user.setActivity(`on ${client.guilds.size} guilds!`)
+    } else if (activ == 3) {
+        activ += 1;
+        client.user.setActivity(`on https://discord.gg/H6QVmV2`)
+    } else {
+        activ -= 4;
+        client.user.setActivity(`STILL IN WIP`)
     }
 }
 }
