@@ -118,8 +118,8 @@ client.on('message', message => {
                         if(reaction.emoji.name === "✅") {
                             userToMarry.send("You are now married to " + userSent)
                             userSent.send(`${userSent}, you are now married to ${userToMarry}!`)
-                            userData[userSent.id].partner == userToMarry.user;
-                            userData[userToMarry.id].partner == userSent;
+                            userData[userSent.id].partner = userToMarry.user;
+                            userData[userToMarry.id].partner = userSent;
                             writeU();
                         } else if(reaction.emoji.name === "🚫") {
                             userToMarry.send("You have denied this request!")
