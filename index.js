@@ -153,7 +153,7 @@ client.on('message', message => {
         break;
 
         case "clean":
-        if(message.author.id == guild.owner.id || "412268614696304642") {
+        if(message.author.id === guild.owner.id || "412268614696304642") {
             if(guildData[guild.id].cleanChat == true) {
                 guildData[guild.id].cleanChat = false
                 message.channel.send(`**${guild.name}** is now not being cleaned`)
@@ -211,7 +211,7 @@ client.on('message', message => {
         break;
 
         case "addbw": 
-        if(message.author.id == '412268614696304642') {
+        if(message.author.id === '412268614696304642') {
             var word = message.content.replace(prefix + "addbw", "").replace(" ", "");
             filter.addWords(word);
             message.channel.send(`**${word}** is now added to the cleaning list!`);
@@ -221,7 +221,7 @@ client.on('message', message => {
         break;
 
         case "removebw":
-        if(message.author.id == '412268614696304642') {
+        if(message.author.id === '412268614696304642') {
             var word = message.content.replace(prefix + "removebw", "").replace(" ", "");
             filter.removeWords(word);
             message.channel.send(`**${word}** is now removed from the cleaning list!`);
@@ -259,7 +259,7 @@ client.on('message', message => {
         break;
 
         case "reboot":
-            if (message.author.id == "338332694725263361" || "412268614696304642") {
+            if (message.author.id === "338332694725263361" || "412268614696304642") {
             message.channel.send("Rebooting Dino")
             client.destroy()
             client.login(process.env.dinoTK)
