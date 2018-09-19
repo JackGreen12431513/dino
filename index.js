@@ -257,13 +257,13 @@ client.user.setActivity("Token Exposed Dino Preservation Protocol Initated..")
 
 
 function writeU() {
-    fs.writeFileSync('./Data Files/userData.json', (userData), (err) => {
+    fs.writeFileSync('./Data Files/userData.json', JSON.stringify(userData), (err) => {
         console.log(err)
     })
 } 
 
 function writeG() {
-    fs.writeFileSync('./Data Files/guilds.json', (guildData))
+    fs.writeFileSync('./Data Files/guilds.json', JSON.stringify(guildData))
 }
 
 function millisToMinutesAndSeconds(millis) {
