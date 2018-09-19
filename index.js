@@ -240,11 +240,23 @@ client.on('message', message => {
         break;
 
         case "reboot":
-            if (message.author.id = "338332694725263361" || "412268614696304642") {
+            if (message.author.id == "338332694725263361" || "412268614696304642") {
             message.channel.send("Rebooting Dino")
             client.destroy()
             client.login(process.env.dinoTK)
             }
+        break;
+
+        case "guildsin": 
+        if (message.author.id == "338332694725263361" || "412268614696304642") {
+            let string = '';
+            client.guilds.forEach(guild=>{
+            string+= 'Guild name: ' + guild.name + '\n';
+            message.author.send(string);
+        })
+        } else {
+            
+        }
         break;
 
         default:
