@@ -204,6 +204,34 @@ client.on('message', message => {
         }
         break;
 
+        case "purge":
+        if(message.author.id == guild.owner.id) {
+            message.channel.bulkDelete(args[1])
+        } else {
+            message.channel.send(`Sorry, ${message.author}, you do not have permission to run this command!`)
+        }
+        break;
+
+        case "addbw": 
+        if(message.author.id == '412268614696304642') {
+            var word = message.content.replace(prefix + "addbw", "").replace(" ", "");
+            filter.addWords(word);
+            message.channel.send(`**${word}** is now added to the cleaning list!`);
+        } else {
+
+        }
+        break;
+
+        case "removebw":
+        if(message.author.id == '412268614696304642') {
+            var word = message.content.replace(prefix + "removebw", "").replace(" ", "");
+            filter.removeWords(word);
+            message.channel.send(`**${word}** is now removed from the cleaning list!`);
+        } else {
+
+        }
+        break;
+
         default:
         message.channel.send("Command not found! Use `##help`!")
         .then(msg => {
