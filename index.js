@@ -246,21 +246,7 @@ client.on('message', message => {
             client.login(process.env.dinoTK)
             }
         break;
-
-        case "guildsin": 
-        if (message.author.id == "338332694725263361" || "412268614696304642") {
-            let string = '';
-            client.guilds.forEach(guild=>{
-            string+= 'Guild name: ' + guild.name + '\n';
-            var guildsEmb = new discord.RichEmbed()
-            .addField("Guilds:", string)
-            message.author.send(guildsEmb);
-        })
-        } else {
-            
-        }
-        break;
-
+        
         default:
         message.channel.send("Command not found! Use `##help`!")
         .then(msg => {
