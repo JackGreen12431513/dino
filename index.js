@@ -108,7 +108,7 @@ client.on('message', message => {
         break;
 
         case "marry":
-        var userSent = sender;
+        var userSent = message.author;
         let userToMarry = message.mentions.members.first();
         if(userToMarry != client.user) {
             try {
@@ -117,6 +117,7 @@ client.on('message', message => {
                     client.on('messageReactionAdd', (reaction, user) => {
                         if(reaction.emoji.name === "✅") {
                             userToMarry.send("You are now married to " + userSent)
+                            userSent(`${userSent}, you are now married to ${userToMarry}!`)
                             userData[userSent.id].partner == userToMarry.user;
                             userData[userToMarry.id].partner == userSent;
                             writeU();
