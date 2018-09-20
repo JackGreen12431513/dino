@@ -26,7 +26,7 @@ module.exports = client => {
         activ += 1;
         client.user.setActivity(`${prefix}help for help!`)
     } else if (activ == 2) {
-        activ += 2;
+        activ -= 2;
         client.user.setActivity(`on ${client.guilds.size} guilds!`)
     }
 }
